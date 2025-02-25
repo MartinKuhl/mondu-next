@@ -13,7 +13,7 @@ export default function Footer() {
         }}
         color="gray"
       >
-        © 2024 Mondu GmbH
+        © 2025 Mondu GmbH
       </Text>
       <Text size="1" color="gray">
         This site is not part of Mondus official product offering. Use at your
