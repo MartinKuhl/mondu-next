@@ -79,7 +79,7 @@ export default function Navbar() {
               Webhooks
             </Text>
           </Link>
-          <Link href="https://github.com/hreinberger">
+          <Link href="https://github.com/mondu-ai">
             <Text
               size={{
                 initial: "1",
