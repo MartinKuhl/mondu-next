@@ -3,10 +3,12 @@
 class MonduApi {
   apiUrl: string;
   apiKey: string;
+  domain: string;
 
   constructor() {
     this.apiUrl = "https://api.demo.mondu.ai/api/v1";
     this.apiKey = process.env.MONDU_API_KEY;
+    this.domain = process.env.DOMAIN;
   }
 
   async createOrder({
@@ -88,9 +90,9 @@ class MonduApi {
         payment_method: payment_method,
         language: "en",
         // URLs to redirect to after hosted checkout
-        success_url: "https://mondu-next.vercel.app/success",
-        declined_url: "https://mondu-next.vercel.app/decline",
-        cancel_url: "https://mondu-next.vercel.app/checkout",
+        success_url: "https://" + this.domain + "/success",
+        declined_url: "https://" + this.domain + "/decline",
+        cancel_url: "https://" + this.domain + "/checkout",
         total_discount_cents: 0,
         external_reference_id: "mondu-next-ord-" + Date.now(), // fill external reference with a unique value. Can be changed later
         source: "widget",
