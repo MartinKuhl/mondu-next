@@ -46,10 +46,14 @@ export default async function Page({
           {entryList.map((entry) => (
             <Card key={entry.id} size="2">
               <Flex gap="1" direction="column">
-                <Flex gap="2" justify="between">
+                {entry.order_uuid && (<Flex gap="2" justify="between">
                   <Text>Order ID</Text>
                   <Badge color="gray">{entry.external_reference_id}</Badge>
-                </Flex>
+                </Flex>)}
+                {entry.order_uuid === null && (<Flex gap="2" justify="between">
+                  <Text>External Reference ID</Text>
+                  <Badge color="gray">{JSON.parse(entry.payload).buyer.external_reference_id}</Badge>
+                </Flex>)}
                 <Flex gap="2" justify="between">
                   <Text>Triggered at</Text>
                   <Badge color="gray">
@@ -66,11 +70,11 @@ export default async function Page({
               </Flex>
               <Separator m="3" size="4" />
               <Flex justify="end" mt="2" gap="3">
-                <Button size="1" variant="outline" asChild>
+                {entry.order_uuid && (<Button size="1" variant="outline" asChild>
                   <Link href={`/orders/${entry.order_uuid}`}>
                     Order details
                   </Link>
-                </Button>
+                </Button>)}
                 <Dialog.Root>
                   <Dialog.Trigger>
                     <Button size="1" variant="outline">
