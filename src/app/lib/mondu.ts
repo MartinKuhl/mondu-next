@@ -1,5 +1,7 @@
 "use server";
 
+import { readFileSync } from "fs";
+
 class MonduApi {
   apiUrl: string;
   apiKey: string;
@@ -7,8 +9,12 @@ class MonduApi {
 
   constructor() {
     this.apiUrl = "https://api.demo.mondu.ai/api/v1";
-    this.apiKey = process.env.MONDU_API_KEY;
     this.domain = process.env.DOMAIN;
+    if (process.env.MONDU_API_KEY_FILE) {
+      this.apiKey = readFileSync(process.env.MONDU_API_KEY_FILE, "utf8").trim();
+    } else {
+      this.apiKey = process.env.MONDU_API_KEY;
+    }
   }
 
   async createOrder({
