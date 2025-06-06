@@ -117,7 +117,7 @@ export default async function CheckoutForm() {
               <TextField.Root
                 mb="2"
                 placeholder="Somestreet 123"
-                defaultValue="Alexanderstr. 36"
+                defaultValue="Unter den Linden 16"
                 name="address"
                 required
               ></TextField.Root>
@@ -137,8 +137,8 @@ export default async function CheckoutForm() {
                 <Text as="label">Zip</Text>
                 <TextField.Root
                   mb="2"
-                  placeholder="10179"
-                  defaultValue="10179"
+                  placeholder="10117"
+                  defaultValue="10117"
                   name="zip_code"
                   required
                 ></TextField.Root>
