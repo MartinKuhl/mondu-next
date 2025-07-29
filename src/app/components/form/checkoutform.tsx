@@ -271,6 +271,16 @@ export default async function CheckoutForm() {
                     <MonduLogo />
                   </Flex>
                   <Separator my="3" size="4" />
+                  <Flex align="center" justify="between" gap="4">
+                    <Text as="label">
+                      <Flex gap="2" align="center">
+                        <RadioGroup.Item value="pay_now" />
+                        Pay Now
+                      </Flex>
+                    </Text>
+                    <MonduLogo />
+                  </Flex>
+                  <Separator my="3" size="4" />
                   <Callout.Root>
                     <Callout.Icon>
                       <InfoCircledIcon />

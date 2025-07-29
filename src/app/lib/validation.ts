@@ -29,6 +29,7 @@ export async function validateFormData(formData: FormData) {
       "direct_debit",
       "installment",
       "installment_by_invoice",
+      "pay_now",
     ]),
   });
 
