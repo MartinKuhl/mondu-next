@@ -142,6 +142,7 @@ class MonduApi {
         external_reference_id,
         buyer_name,
         created_at,
+        payment_method,
       } = order;
       return {
         uuid,
@@ -150,6 +151,7 @@ class MonduApi {
         external_reference_id,
         buyer_name,
         created_at,
+        payment_method,
       };
     });
     return orders;

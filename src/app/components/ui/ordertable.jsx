@@ -26,6 +26,9 @@ export default async function Ordertable({ page, per_page }) {
                 Order ID
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell align="center">
+                Method
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell align="center">
                 Created At
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell align="center">
@@ -50,6 +53,9 @@ export default async function Ordertable({ page, per_page }) {
                 <Table.RowHeaderCell align="center">
                   {order.external_reference_id}
                 </Table.RowHeaderCell>
+                <Table.Cell align="center">
+                  {order.payment_method}
+                </Table.Cell>
                 <Table.Cell align="center">
                   {new Date(order.created_at).toLocaleString("de-DE", {
                     dateStyle: "medium",
