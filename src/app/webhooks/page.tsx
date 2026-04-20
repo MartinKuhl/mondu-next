@@ -20,10 +20,11 @@ import Pagination from "@/app/components/ui/pagination";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { page: number; per_page: number };
+  searchParams: Promise<{ page: number; per_page: number }>;
 }) {
-  const page = Number(searchParams.page) || 1;
-  const per_page = Number(searchParams.per_page) || 10;
+  const { page: pageParam, per_page: perPageParam } = await searchParams;
+  const page = Number(pageParam) || 1;
+  const per_page = Number(perPageParam) || 10;
   const entryList = await prisma.webhooks.findMany({
     take: per_page,
     skip: (page - 1) * per_page,
