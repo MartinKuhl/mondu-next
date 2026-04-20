@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 
 export async function POST(request: Request) {
   try {
-    const headersList = headers();
+    const headersList = await headers();
     const payload = await request.text();
     const signature = headersList.get("X-Mondu-Signature");
     const isVerified = await MonduVerifier(payload, signature || "");
