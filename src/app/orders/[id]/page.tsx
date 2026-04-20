@@ -5,8 +5,9 @@ import WebhooksTab from "@/app/components/tabs/webhooks";
 import { revalidatePath } from "next/cache";
 import { validateUuid } from "@/app/lib/validation";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const validatedUuid = await validateUuid(params.id);
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const validatedUuid = await validateUuid(id);
   const order = await monduOrder(validatedUuid);
   revalidatePath(`/orders/${validatedUuid}`);
   return (
