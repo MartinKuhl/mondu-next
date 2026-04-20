@@ -26,10 +26,12 @@ export default async function WebhooksTab(order: { uuid: string }) {
           <Table.Row key={entry.id as Key}>
             <Table.RowHeaderCell>
               <Text mr="4">
-                {new Date(entry.event_time).toLocaleString("de-DE", {
-                  dateStyle: "medium",
-                  timeStyle: "short",
-                })}
+                {entry.event_time
+                  ? new Date(entry.event_time).toLocaleString("de-DE", {
+                      dateStyle: "medium",
+                      timeStyle: "short",
+                    })
+                  : "—"}
               </Text>
             </Table.RowHeaderCell>
             <Table.Cell>
