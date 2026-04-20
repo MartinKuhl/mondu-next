@@ -9,11 +9,11 @@ class MonduApi {
 
   constructor() {
     this.apiUrl = "https://api.demo.mondu.ai/api/v1";
-    this.domain = process.env.SERVER_NAME;
+    this.domain = process.env.SERVER_NAME!;
     if (process.env.MONDU_API_KEY_FILE) {
       this.apiKey = readFileSync(process.env.MONDU_API_KEY_FILE, "utf8").trim();
     } else {
-      this.apiKey = process.env.MONDU_API_KEY;
+      this.apiKey = process.env.MONDU_API_KEY!;
     }
   }
 
