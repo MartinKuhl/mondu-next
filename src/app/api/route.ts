@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import MonduVerifier from "@/app/lib/webhookVerifier";
 import { monduConfirm } from "../lib/mondu";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/app/lib/db";
 import { revalidatePath } from "next/cache";
 
 export async function POST(request: Request) {
@@ -29,8 +29,6 @@ export async function POST(request: Request) {
       order_state: string;
       event_time: Date;
     } = webhookData;
-
-    const prisma = new PrismaClient();
 
     const webhook = await prisma.webhooks.create({
       data: {
