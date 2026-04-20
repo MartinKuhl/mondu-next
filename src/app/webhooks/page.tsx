@@ -14,7 +14,6 @@ import {
 } from "@radix-ui/themes";
 import Link from "next/link";
 import { prisma } from "@/app/lib/db";
-import { revalidatePath } from "next/cache";
 import Pagination from "@/app/components/ui/pagination";
 
 export default async function Page({
@@ -32,7 +31,6 @@ export default async function Page({
       event_time: "desc",
     },
   });
-  revalidatePath("/webhooks");
   return (
     <main>
       <Flex direction="column" m="6">
