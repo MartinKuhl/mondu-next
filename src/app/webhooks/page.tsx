@@ -57,10 +57,12 @@ export default async function Page({
                 <Flex gap="2" justify="between">
                   <Text>Triggered at</Text>
                   <Badge color="gray">
-                    {new Date(entry.event_time).toLocaleString("de-DE", {
-                      dateStyle: "medium",
-                      timeStyle: "short",
-                    })}
+                    {entry.event_time
+                      ? new Date(entry.event_time).toLocaleString("de-DE", {
+                          dateStyle: "medium",
+                          timeStyle: "short",
+                        })
+                      : "—"}
                   </Badge>
                 </Flex>
                 <Flex gap="2" justify="between">
