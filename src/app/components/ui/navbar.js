@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Text, Code, Flex } from "@radix-ui/themes";
+import ThemeToggle from "@/app/components/ui/themeToggle.jsx";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
@@ -91,6 +92,7 @@ export default function Navbar() {
               <Code>Github Repo</Code>
             </Text>
           </Link>
+          <ThemeToggle />
         </nav>
       </header>
     </Flex>

@@ -16,7 +16,7 @@ import {
   Callout,
 } from "@radix-ui/themes";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import MonduLogo from "@/app/components/ui/monduLogo.js";
+import PaymentLogo from "@/app/components/ui/paymentLogo.jsx";
 
 // Next logic
 import { redirect } from "next/navigation";
@@ -235,50 +235,50 @@ export default async function CheckoutForm() {
                     <Text as="label">
                       <Flex gap="2" align="center">
                         <RadioGroup.Item value="invoice" />
-                        Invoice
+                        Invoice (30 days)
                       </Flex>
                     </Text>
-                    <MonduLogo />
+                    <PaymentLogo method="invoice" />
                   </Flex>
                   <Separator my="3" size="4" />
                   <Flex align="center" justify="between" gap="4">
                     <Text as="label">
                       <Flex gap="2" align="center">
                         <RadioGroup.Item value="direct_debit" />
-                        SEPA Direct Debit
+                        SEPA direct debit (30 days)
                       </Flex>
                     </Text>
-                    <MonduLogo />
+                    <PaymentLogo method="direct_debit" />
                   </Flex>
                   <Separator my="3" size="4" />
                   <Flex align="center" justify="between" gap="4">
                     <Text as="label">
                       <Flex gap="2" align="center">
                         <RadioGroup.Item value="installment" />
-                        Installments
+                        Installments (3, 6, 12 months)
                       </Flex>
                     </Text>
-                    <MonduLogo />
+                    <PaymentLogo method="installment" />
                   </Flex>
                   <Separator my="3" size="4" />
                   <Flex align="center" justify="between" gap="4">
                     <Text as="label">
                       <Flex gap="2" align="center">
                         <RadioGroup.Item value="installment_by_invoice" />
-                        Installments by invoice
+                        Installments (3, 6, 12 months by Invoice)
                       </Flex>
                     </Text>
-                    <MonduLogo />
+                    <PaymentLogo method="installment_by_invoice" />
                   </Flex>
                   <Separator my="3" size="4" />
                   <Flex align="center" justify="between" gap="4">
                     <Text as="label">
                       <Flex gap="2" align="center">
                         <RadioGroup.Item value="pay_now" />
-                        Pay Now
+                        Instant Pay
                       </Flex>
                     </Text>
-                    <MonduLogo />
+                    <PaymentLogo method="pay_now" />
                   </Flex>
                   <Separator my="3" size="4" />
                   <Callout.Root>

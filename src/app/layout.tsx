@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Theme, ThemePanel, Container, Section } from "@radix-ui/themes";
+import { Container, Section } from "@radix-ui/themes";
 
 import Navbar from "@/app/components/ui/navbar.js";
 import Footer from "@/app/components/ui/footer.js";
 import { Providers } from "@/app/components/ui/providers.jsx";
+import ThemeWrapper from "@/app/components/ui/themeWrapper.jsx";
 
 export const metadata: Metadata = {
   title: "Mondu Demo App",
@@ -20,14 +21,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
-          <Theme
-            accentColor="violet"
-            grayColor="gray"
-            panelBackground="solid"
-            scaling="110%"
-            radius="small"
-          >
-            {/* <ThemePanel /> */}
+          <ThemeWrapper>
             <Container size="4">
               <Section pt="0" pb="4">
                 <Navbar />
@@ -39,7 +33,7 @@ export default function RootLayout({
                 <Footer />
               </Section>
             </Container>
-          </Theme>
+          </ThemeWrapper>
         </Providers>
       </body>
     </html>
