@@ -1,5 +1,4 @@
 import {
-  Text,
   Badge,
   Tabs,
   Flex,
@@ -7,8 +6,10 @@ import {
   Dialog,
   Button,
   ScrollArea,
+  Text,
 } from "@radix-ui/themes";
 import StateBadge from "../ui/orderStateBadge";
+import JsonHighlight from "../ui/JsonHighlight";
 
 export default function OrderOverview(order: {
   external_reference_id: string;
@@ -60,9 +61,7 @@ export default function OrderOverview(order: {
             <Dialog.Title>Raw Order Data</Dialog.Title>
             <Separator my="2" size="4" />
             <ScrollArea style={{ height: 480 }}>
-              <Text size="1">
-                <pre>{JSON.stringify(order, null, 2)}</pre>
-              </Text>
+              <JsonHighlight data={order} />
             </ScrollArea>
           </Dialog.Content>
         </Dialog.Root>

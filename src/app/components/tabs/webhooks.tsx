@@ -1,16 +1,17 @@
 "use server";
 
 import {
-  Text,
   Table,
   Dialog,
   Tabs,
   Button,
   ScrollArea,
   Separator,
+  Text,
 } from "@radix-ui/themes";
 import { Key } from "react";
 import { prisma } from "@/app/lib/db";
+import JsonHighlight from "../ui/JsonHighlight";
 
 export default async function WebhooksTab(order: { uuid: string }) {
   const entryList = await prisma.webhooks.findMany({
@@ -48,11 +49,7 @@ export default async function WebhooksTab(order: { uuid: string }) {
                   <Dialog.Title>Webhook Payload</Dialog.Title>
                   <Separator my="2" size="4" />
                   <ScrollArea>
-                    <Text size="1">
-                      <pre>
-                        {JSON.stringify(JSON.parse(entry.payload), null, 2)}
-                      </pre>
-                    </Text>
+                    <JsonHighlight data={JSON.parse(entry.payload)} />
                   </ScrollArea>
                 </Dialog.Content>
               </Dialog.Root>
