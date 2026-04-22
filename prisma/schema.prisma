@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
+    provider = "mysql"
 }
 
 model Webhooks {
@@ -15,5 +15,5 @@ model Webhooks {
     order_uuid            String?
     order_state           String?
     event_time            DateTime? @default(now())
-    payload               String
+    payload               String    @db.Text
 }
